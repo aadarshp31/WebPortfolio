@@ -39,9 +39,8 @@ body{
 
 .navbar-scroll{
     background-color: var(--primarycolor);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19),
-                0 6px 10px rgba(0, 0, 0, 0.23);
-    transition: background-color 0.1s ease-in;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.19);
+    /* transition: background-color 0.2s ease-in-out; */
 }
 
 .hamburger{
@@ -363,6 +362,16 @@ section{
     color: var(--textcolor);
 }
 
+#about-section .designations{
+    color: var(--secondarycolor);
+}
+
+#about-section p{
+    width: 80%;
+    margin: 10px auto;
+    text-align: justify;
+}
+
 /* *About Section* */
 
 /*  *Download Resume Button */
@@ -528,30 +537,6 @@ hr{
     margin: 0 auto;
 }
 
-.dp-overlay{
-    position: relative;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.dp-overlay::after{
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    content: "";
-    background-color: #242832;
-    opacity: 0.2;
-    transition: opacity 0.2s ease-out;
-}
-
-.dp-overlay:hover::after{
-    opacity: 0.1;
-    transition: opacity 0.2s ease-out;
-}
-
 .resume-section{
     width: 90%;
     margin: 0 auto;
@@ -649,7 +634,7 @@ hr{
 
 .resume-section .resume-skills p{
     display: inline-block;
-    margin: 3px;
+    margin: 3px 0px;
     padding: 7px 20px;
     font-weight: 600;
     border-radius: 20px;
@@ -741,13 +726,17 @@ hr{
 .fa-github{
     font-size: 4rem;
 }
+.fa-node-js{
+    color: #7FBA37;
+    font-size: 4rem;
+}
 
 /* *Skills Section* */
 
 /* *Contact Form Section* */
 
 #form-section{
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -875,6 +864,10 @@ hr{
 }
 
 @media (max-width: 730px){
+    #form-section{
+        width: 80%;
+    }
+
     #contact-form{
         height: 500px;
     }
