@@ -7,7 +7,8 @@
 
 body{
     font-family: 'Segoe UI', sans-serif;
-    background-color: #EFEFEF;
+    background-color: #EFEFEF; /*Fallback Background color for older browsers*/
+    background-image: linear-gradient(to top, #dfe9f3 0%, rgb(241, 241, 241) 100%);
     overflow-x: hidden;
 }
 
@@ -422,62 +423,61 @@ section{
 }
 
 .project-gallery{
-    display: grid;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    row-gap: 40px;
-    column-gap: 20px;
 }
 
 .project-tile{
-    height: 500px;
+    height: 400px;
+    width: 100%;
     margin: 10px 0px;
-    padding: 10px;
+    padding: 20px;
     border: 0.5px solid lightgrey;
     border-radius: 5px;
     background-color: var(--primarycolor);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    justify-items: center;
     align-items: center;
-    justify-content: space-around;
     text-align: center;
+    grid-template-areas: 
+    "child1 child2"
+    "child3 child2"
+    "child4 child2";
+    grid-gap: 10px;
+    grid-template-columns: 3fr 4fr;
     transition: all 0.2s ease-in-out;
 }
 
-.project-tile .img-div{
-    position: relative;
-    z-index: 1;
-    border: 1px solid #000;
-    transition: all 0.2s ease-in;
+.tile-child1{
+    grid-area: child1;
+}
+.tile-child2{
+    grid-area: child2;
+}
+.tile-child3{
+    grid-area: child3;
+}
+.tile-child4{
+    grid-area: child4;
 }
 
-.project-tile .img-div img{
+.project-tile .project-img{
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0.3em 0.3em 0.5em #eee;
     display: block;
     width: 100%;
-    transition: all 0.2s ease-in;
-}
-
-.project-tile .img-div::after{
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #242832;
-    opacity: 0.1;
-    z-index: 1;
 }
 
 .project-tile:hover{
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0em 0.1em 0.8em rgba(0, 0, 0, 0.3);
     transition: all 0.2s linear;
 }
 
-.project-tile .img-div:hover::after{
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
+.project-tile p{
+    text-align: justify;
 }
 
 .project-tile .btns{
@@ -509,6 +509,34 @@ section{
 .project-tile .btns a:focus{
     background-color: var(--hovercolor);
     transition: all 0.2s linear;
+}
+
+/*Managing Responsiveness of the project tiles aka cards*/
+@media (max-width: 1000px){
+    .project-tile{
+        height: auto;
+        padding: 20px;
+        grid-template-areas: 
+        "child1 child1"
+        "child2 child2"
+        "child3 child3"
+        "child4 child4";
+        grid-template-rows: 1fr 4fr 2fr 1fr;
+    }
+
+    .project-tile .project-img{
+        width: 90%;
+    }
+}
+
+@media (max-width: 730px){
+    .project-tile{
+        height: 500px;
+        padding: 20px 10px;
+    }
+    .project-tile .project-img{
+        width: 100%;
+    }
 }
 
 /* *Projects Section* */
@@ -593,7 +621,6 @@ hr{
     grid-template-columns: 1fr 3fr;
     row-gap: 10px;
     column-gap: 20px;
-    justify-items: center;
     align-items: flex-start;
     width: 90%;
     margin: 0 auto;
@@ -606,7 +633,7 @@ hr{
     background-color: var(--primarycolor);
     border: 0.5px solid lightgrey;
     border-radius: 5px;
-    box-shadow: 0px 1px 6px grey;
+    box-shadow: 0em 0.1em 0.5em rgba(0, 0, 0, 0.3);
     font-size: 1rem;
     color: var(--textcolor);
 }
@@ -621,21 +648,24 @@ hr{
     max-width: 500px;
     grid-column: 1/2;
     grid-row: 1/3;
+    justify-self: flex-end;
 }
 
 .right-card-1{
     grid-column: 2/3;
     grid-row: 1/2;
+    justify-self: flex-start;
 }
 .right-card-2{
     grid-column: 2/3;
     grid-row: 2/3;
+    justify-self: flex-start;
 }
 
 .resume-section .resume-skills p{
     display: inline-block;
     margin: 3px 0px;
-    padding: 7px 20px;
+    padding: 6px 20px;
     font-weight: 600;
     border-radius: 20px;
     color: var(--primarycolor);
@@ -730,6 +760,10 @@ hr{
     color: #7FBA37;
     font-size: 4rem;
 }
+.fa-mobile-alt,
+.fa-laptop{
+    color: crimson;
+}
 
 /* *Skills Section* */
 
@@ -745,7 +779,7 @@ hr{
     margin: 20px auto;
     padding: 10px 20px;
     border-radius: 10px;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0em 0.1em 0.8em rgba(0, 0, 0, 0.3);
     background-color: var(--primarycolor);
     color: var(--textcolor);
     display: flex;
