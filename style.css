@@ -355,9 +355,16 @@ section {
   font-size: 2rem;
 }
 
+.email {
+  text-decoration: none;
+  color: var(--secondarycolor);
+  font-weight: 700;
+}
+
 #about-section {
   height: 100%;
   width: 80%;
+  max-width: 1500px;
   margin: 40px auto;
   padding: 20px;
   border-radius: 5px;
