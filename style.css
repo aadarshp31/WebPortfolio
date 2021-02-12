@@ -747,23 +747,11 @@ hr {
   text-align: center;
 }
 
-.responsive {
-  font-size: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.responsive-design {
-  font-size: 2rem;
-}
-
-.fa-html5 {
-  color: #e44d26;
+.fa-angular {
+  color: crimson;
   font-size: 4rem;
 }
-.fa-css3-alt {
+.fa-react {
   color: #189aee;
   font-size: 4rem;
 }
@@ -771,16 +759,13 @@ hr {
   color: #f7df1e;
   font-size: 4rem;
 }
-.fa-github {
+.fa-database {
+  color: grey;
   font-size: 4rem;
 }
 .fa-node-js {
   color: #7fba37;
   font-size: 4rem;
-}
-.fa-mobile-alt,
-.fa-laptop {
-  color: crimson;
 }
 
 /* *Skills Section* */
