@@ -771,7 +771,8 @@ hr {
 /* *Contact Form Section* */
 
 #form-section {
-  width: 60%;
+  width: 40%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
