@@ -31,6 +31,14 @@ body {
 
 /* *Navbar* */
 
+.nav-wrapper {
+  width: 100vw;
+  display: flex;
+  padding: 0 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .navbar {
   position: fixed;
   display: flex;
