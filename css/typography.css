@@ -23,3 +23,11 @@
 .text-bold {
   font-weight: bold;
 }
+
+.badge-current {
+  padding: 3px;
+  color: #fff;
+  background-color: var(--primarycolor);
+  border-radius: 4px;
+  font-weight: 700;
+}
