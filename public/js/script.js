@@ -7,6 +7,7 @@
 	const navbar_a = document.querySelector('#nav-link-a');
 	const overlay = document.querySelector('#page-overlay');
 	const submitButton = document.querySelector("#submit");
+	const form = document.querySelector("form");
 
 	//* Controling the animation of hamburger icon
 
@@ -53,12 +54,15 @@
 	})
 
 	// Controling the behaviour of the contact form after submit event is activated
-	submitButton.addEventListener('click', async (event) => {
+	form.addEventListener('submit', async (event) => {
 		event.preventDefault();
 		thankyouMessage.style.display = "flex";
 		const inputsArray = document.querySelectorAll('input');
 		const formData = new FormData();
 		submitButton.disabled = true;
+		submitButton.value = "";
+		submitButton.classList.add('loading');
+
 		for (const input of inputsArray) {
 			if (input.type === 'submit') {
 				continue;
@@ -84,6 +88,8 @@
 				// Display "thank You" message after submitting form
 				thankyouMessage.style.opacity = "80%";
 				thankyouMessage.classList.add('thankyou_message-active');
+				submitButton.classList.remove('loading');
+				submitButton.value = "Submit";
 
 				// Remove "thank you" message after 3s
 				setTimeout(() => {
@@ -104,5 +110,7 @@
 
 		// Re-enable the submit button regardless of the response
 		submitButton.disabled = false;
+		submitButton.classList.remove('loading');
+		submitButton.value = "Submit";
 	});
 })()
