@@ -897,13 +897,28 @@ hr {
 }
 
 .thankyou_message {
+	z-index: 3;
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -20%);
+	color: var(--backgroundcolor);
+	background-color: var(--hovercolor);
+	height: 150px;
+	width: 500px;
 	display: none;
+	justify-content: center;
+	align-items: center;
+	border-radius: 7px;
 	font-size: 1rem;
 	text-align: center;
-	color: var(--textcolor);
+	opacity: 0%;
+	transition: opacity 500ms ease-in;
 }
 .thankyou_message-active {
-	display: block;
+	opacity: 80%;
+	display: flex;
+	transition: opacity 500ms ease-in;
 }
 
 @media (max-width: 730px) {

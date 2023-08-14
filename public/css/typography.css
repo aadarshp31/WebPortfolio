@@ -1,4 +1,4 @@
-@import './style.css';
+@import './global-styles.css';
 
 .text {
 	color: var(--textcolor);

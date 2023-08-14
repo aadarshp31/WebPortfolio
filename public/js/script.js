@@ -1,14 +1,12 @@
-;(() => {
-	const jump = document.querySelector('.jump'),
-		contactForm = document.querySelector('#contact-form'),
-		thankyouMessage = document.querySelector('.thankyou_message'),
-		inputField = document.querySelector('.input-field'),
-		label = document.querySelector('#label'),
-		hamburger = document.querySelector('#hamburger'),
-		navbar = document.querySelector('#navbar'),
-		navList = document.querySelector('#nav-ul'),
-		navbar_a = document.querySelector('#nav-link-a'),
-		overlay = document.querySelector('#page-overlay')
+(() => {
+	const jump = document.querySelector('.jump');
+	const thankyouMessage = document.querySelector('.thankyou_message');
+	const hamburger = document.querySelector('#hamburger');
+	const navbar = document.querySelector('#navbar');
+	const navList = document.querySelector('#nav-ul');
+	const navbar_a = document.querySelector('#nav-link-a');
+	const overlay = document.querySelector('#page-overlay');
+	const submitButton = document.querySelector("#submit");
 
 	//* Controling the animation of hamburger icon
 
@@ -55,19 +53,56 @@
 	})
 
 	// Controling the behaviour of the contact form after submit event is activated
+	submitButton.addEventListener('click', async (event) => {
+		event.preventDefault();
+		thankyouMessage.style.display = "flex";
+		const inputsArray = document.querySelectorAll('input');
+		const formData = new FormData();
+		submitButton.disabled = true;
+		for (const input of inputsArray) {
+			if (input.type === 'submit') {
+				continue;
+			}
+			formData.append(input.name, input.value);
+		}
 
-	contactForm.addEventListener('submit', () => {
-		// Popup Window handler
-		POPUPW = window.open('about:blank', 'POPUPW', 'width=300, height=200')
+		const res = await fetch('https://script.google.com/macros/s/AKfycbw2XDL4ovMweNUkNnPXFeGkNv55cqYkih68r_z_/exec', {
+			method: 'POST',
+			body: formData
+		});
 
-		// Display "thank You" message after submitting form
-		thankyouMessage.classList.add('thankyou_message-active')
-		window.location.replace('#thankyou_message')
+		switch (res.status) {
+			case 200:
+				submitButton.disabled = false;
+				for (const input of inputsArray) {
+					if (input.type === 'submit') {
+						continue;
+					}
+					input.value = '';
+				}
 
-		// Remove "thank you" message after 10s
-		setTimeout(() => {
-			thankyouMessage.classList.remove('thankyou_message-active')
-			POPUPW.close()
-		}, 10000)
-	})
+				// Display "thank You" message after submitting form
+				thankyouMessage.style.opacity = "80%";
+				thankyouMessage.classList.add('thankyou_message-active');
+
+				// Remove "thank you" message after 3s
+				setTimeout(() => {
+					thankyouMessage.style.opacity = "0%";
+					setTimeout(() => {
+						thankyouMessage.classList.remove('thankyou_message-active');
+						thankyouMessage.style.opacity = "0%";
+						thankyouMessage.style.display = "none";
+					}, 600);
+				}, 3000);
+
+				break;
+
+			default:
+				console.error('something went wrong while sending email');
+				break;
+		}
+
+		// Re-enable the submit button regardless of the response
+		submitButton.disabled = false;
+	});
 })()
