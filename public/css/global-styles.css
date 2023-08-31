@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+
 * {
 	padding: 0;
 	margin: 0;
@@ -9,7 +10,7 @@
 
 body {
 	font-family: 'Poppins', 'Segoe UI', sans-serif;
-	background-color: #efefef; /*Fallback Background color for older browsers*/
+	background-color: var(--backgroundcolor); /*Fallback Background color for older browsers*/
 	background-image: linear-gradient(
 		to top,
 		#dfe9f3 0%,
@@ -24,6 +25,10 @@ body {
 	--primarycolor: #e8676b;
 	--hovercolor: crimson;
 	--textcolor: #3d4451;
+	--borderColor: lightgrey;
+	--shadowColor: #eee;
+	--elementBackgroundColor: rgba(255,255,255, 0.9);
+	--footerBackgroundColor: rgba(255, 255, 255, 0.377);
 }
 
 ::selection {
@@ -81,12 +86,12 @@ body {
 	width: 25px;
 	height: 3px;
 	margin: 3px;
-	background-color: var(--navlinka);
+	background-color: var(--primarycolor);
 	transition: all 0.5s;
 }
 
 .hamburger-active {
-	border: 1px solid var(--textcolor);
+	border: 1px solid var(--borderColor);
 }
 
 .hamburger-active .line1 {
@@ -263,6 +268,7 @@ body {
 .main-section {
 	display: flex;
 	flex-direction: column;
+	background-color: var(--backgroundcolor);
 }
 
 section {
@@ -371,7 +377,7 @@ section {
 	padding: 20px;
 	border-radius: 5px;
 	text-align: center;
-	background-color: var(--backgroundcolor);
+	background-color: var(--elementBackgroundColor);
 	color: var(--textcolor);
 }
 
@@ -397,10 +403,11 @@ section {
 .download-resume a {
 	padding: 20px;
 	margin: 0 auto;
-	border: 1.5px solid lightgrey;
+	border: 1.5px solid var(--borderColor);
 	border-radius: 4px;
 	text-decoration: none;
 	color: var(--textcolor);
+	background-color: var(--elementBackgroundColor);
 	font-weight: 700;
 	letter-spacing: 1px;
 }
@@ -445,9 +452,9 @@ section {
 	max-width: 1500px;
 	margin: 10px 0px;
 	padding: 20px;
-	border: 0.5px solid lightgrey;
+	border: 0.5px solid var(--borderColor);
 	border-radius: 5px;
-	background-color: var(--backgroundcolor);
+	background-color: var(--elementBackgroundColor);
 	display: grid;
 	justify-items: center;
 	align-items: center;
@@ -475,9 +482,8 @@ section {
 }
 
 .project-tile .project-img {
-	border: 1px solid #eee;
 	border-radius: 10px;
-	box-shadow: 0.3em 0.3em 0.5em #eee;
+	box-shadow: 0.3em 0.3em 0.5em var(--shadowColor);
 	display: block;
 	width: 100%;
 	max-width: 900px;
@@ -651,10 +657,9 @@ hr {
 	width: 100%;
 	max-width: 1000px;
 	padding: 20px;
-	background-color: var(--backgroundcolor);
-	border: 0.5px solid lightgrey;
+	background-color: var(--elementBackgroundColor);
 	border-radius: 5px;
-	box-shadow: 0em 0.1em 0.5em rgba(0, 0, 0, 0.3);
+	box-shadow: 0em 0.1em 0.5em rgb(0, 0, 0, 0.3);
 	font-size: 1rem;
 	color: var(--textcolor);
 }
@@ -689,7 +694,6 @@ hr {
 	padding: 6px 20px;
 	font-weight: 600;
 	border-radius: 20px;
-	color: var(--backgroundcolor);
 	background-color: var(--primarycolor);
 }
 
@@ -724,7 +728,7 @@ hr {
 
 #skills-section {
 	padding: 40px 0px;
-	background-color: #1f1f2e;
+	background-color: var(--elementBackgroundColor);
 	font-size: 1.5rem;
 }
 
@@ -789,7 +793,7 @@ hr {
 	padding: 10px 20px;
 	border-radius: 10px;
 	box-shadow: 0em 0.1em 0.8em rgba(0, 0, 0, 0.3);
-	background-color: var(--backgroundcolor);
+	background-color: var(--elementBackgroundColor);
 	color: var(--textcolor);
 	display: flex;
 	flex-direction: column;
@@ -805,6 +809,7 @@ hr {
 .input-field {
 	font-size: 1.5rem;
 	color: var(--textcolor);
+	background-color: var(--elementBackgroundColor);
 }
 
 /* input animation */
@@ -902,8 +907,8 @@ hr {
 	top: 20%;
 	left: 50%;
 	transform: translate(-50%, -20%);
-	color: var(--backgroundcolor);
-	background-color: var(--hovercolor);
+	color: var(--primarycolor);
+	background-color: var(--elementBackgroundColor);
 	height: 150px;
 	width: 500px;
 	display: none;
@@ -950,7 +955,7 @@ hr {
 /* *Footer* */
 
 .footer {
-	background-color: var(--backgroundcolor);
+	background-color: var(--footerBackgroundColor);
 	padding: 10px;
 	color: var(--textcolor);
 }
