@@ -34,13 +34,8 @@
 
 		if (scroll >= 100) {
 			navbar.classList.add('navbar-scroll')
-			document.documentElement.style.setProperty('--navlinka', '#3d4451')
 		} else {
 			navbar.classList.remove('navbar-scroll')
-			document.documentElement.style.setProperty(
-				'--navlinka',
-				'rgba(255, 255, 255, 0.7)'
-			)
 		}
 	})
 
