@@ -1,5 +1,5 @@
 # WebPortfolio
-This repository contains the files for the web portfolio of Adarsh Pandey hosted at https://www.adarshpandey.in
+This repository source code files for the my web portfolio website hosted at https://www.adarshpandey.in
 
 
 ## Home Page
@@ -9,7 +9,12 @@ This repository contains the files for the web portfolio of Adarsh Pandey hosted
 
 ### I'm [Adarsh Pandey](https://www.linkedin.com/in/aadarshp31)
 
-Aspiring Full-stack Developer with proficiency in MEAN, MERN stack application development.
+Aspiring Full-stack Developer with proficiency in MEAN, MERN stack, and Java application development.
+
+### Tech Stack
+- HTML, CSS, Javascript
+- Firebase, Cloudflare CDN for deployment
+- GitHub Actions for CICD
 
 #### Have an interesting topic to discuss? Connect with me here!
 
