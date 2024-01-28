@@ -3,6 +3,7 @@
 	const thankyouMessage = document.querySelector('.thankyou_message');
 	const hamburger = document.querySelector('#hamburger');
 	const navbar = document.querySelector('#navbar');
+	const pageOverlay = document.querySelector('.page-overlay');
 	const navList = document.querySelector('#nav-ul');
 	const navbar_a = document.querySelector('#nav-link-a');
 	const overlay = document.querySelector('#page-overlay');
@@ -15,6 +16,15 @@
 		hamburger.classList.toggle('hamburger-active')
 		navList.classList.toggle('nav-ul-active')
 		overlay.classList.toggle('page-overlay-active')
+	})
+
+	// close the open navbar slider if page-overlay element is clicked
+	pageOverlay.addEventListener('click', () => {
+		if(hamburger.classList.contains('hamburger-active')){
+			hamburger.classList.toggle('hamburger-active')
+			navList.classList.toggle('nav-ul-active')
+			overlay.classList.toggle('page-overlay-active')
+		}
 	})
 
 	// Controling the visibility of jump-to-top icon on scroll events

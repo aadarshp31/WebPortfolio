@@ -3,7 +3,7 @@ This repository source code files for the my web portfolio website hosted at htt
 
 
 ## Home Page
-![Home Page Snapshot](https://user-images.githubusercontent.com/44257152/126909975-36e2ed52-076d-44fb-a118-4bf55c86ef61.png)
+![Home Page Snapshot](https://github.com/aadarshp31/WebPortfolio/assets/44257152/0b98d982-3c44-464e-936f-0354f19fc4d4)
 
 # <br />Author
 

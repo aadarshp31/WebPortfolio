@@ -15,7 +15,7 @@ const styleDark = {
 	backgroundcolor: "rgba(37, 36, 36, 1)",
 	primarycolor: "#e8676b",
 	hovercolor: "crimson",
-	textcolor: "#fcfcfc",
+	textcolor: "#ffffffdb",
 	borderColor: "#222",
 	shadowColor: "#222",
 	elementBackgroundColor: "rgb(49, 49, 49)",
@@ -23,14 +23,23 @@ const styleDark = {
 }
 
 // a function to change the style of the page
-const changeStyle = (style) => {
-    document.documentElement.style.setProperty('--navlinka', style.navlinka);
-    document.documentElement.style.setProperty('--backgroundcolor', style.backgroundcolor);
-    document.documentElement.style.setProperty('--primarycolor', style.primarycolor);
-    document.documentElement.style.setProperty('--hovercolor', style.hovercolor);
-    document.documentElement.style.setProperty('--textcolor', style.textcolor);
-    document.documentElement.style.setProperty('--borderColor', style.borderColor);
-    document.documentElement.style.setProperty('--shadowColor', style.shadowColor);
-    document.documentElement.style.setProperty('--elementBackgroundColor', style.elementBackgroundColor);
-    document.documentElement.style.setProperty('--footerBackgroundColor', style.footerBackgroundColor);
+function changeStyle(style) {
+	document.documentElement.style.setProperty('--navlinka', style.navlinka);
+	document.documentElement.style.setProperty('--backgroundcolor', style.backgroundcolor);
+	document.documentElement.style.setProperty('--primarycolor', style.primarycolor);
+	document.documentElement.style.setProperty('--hovercolor', style.hovercolor);
+	document.documentElement.style.setProperty('--textcolor', style.textcolor);
+	document.documentElement.style.setProperty('--borderColor', style.borderColor);
+	document.documentElement.style.setProperty('--shadowColor', style.shadowColor);
+	document.documentElement.style.setProperty('--elementBackgroundColor', style.elementBackgroundColor);
+	document.documentElement.style.setProperty('--footerBackgroundColor', style.footerBackgroundColor);
+}
+
+/**
+ * Toggles the websites global theme
+ * @param {Event} e 
+ * @author @aadarshp31
+ */
+function toggleTheme(e){
+		changeStyle(e.target.checked ? styleLight : styleDark);
 }
