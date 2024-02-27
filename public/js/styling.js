@@ -16,7 +16,7 @@ const styleDark = {
 	primarycolor: "#e8676b",
 	hovercolor: "crimson",
 	textcolor: "#ffffffdb",
-	borderColor: "#222",
+	borderColor: "#D8D8D8",
 	shadowColor: "#222",
 	elementBackgroundColor: "rgb(49, 49, 49)",
 	footerBackgroundColor: "rgba(31, 31, 31)",
@@ -40,6 +40,6 @@ function changeStyle(style) {
  * @param {Event} e 
  * @author @aadarshp31
  */
-function toggleTheme(e){
-		changeStyle(e.target.checked ? styleLight : styleDark);
+function toggleTheme(e) {
+	changeStyle(e.target.checked ? styleDark : styleLight);
 }

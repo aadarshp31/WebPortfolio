@@ -10,26 +10,25 @@
 
 body {
 	font-family: 'Poppins', 'Segoe UI', sans-serif;
-	background-color: var(--backgroundcolor); /*Fallback Background color for older browsers*/
-	background-image: linear-gradient(
-		to top,
-		#dfe9f3 0%,
-		rgb(241, 241, 241) 100%
-	);
+	background-color: var(--backgroundcolor);
+	/*Fallback Background color for older browsers*/
+	background-image: linear-gradient(to top,
+			#dfe9f3 0%,
+			rgb(241, 241, 241) 100%);
 	overflow-x: hidden;
 }
 
 :root {
+	--welcomeSectionOverlay: rgb(36, 40, 50);
 	--navlinka: rgba(255, 255, 255, 0.7);
-	--backgroundcolor: rgba(37, 36, 36, 1);
+	--backgroundcolor: rgb(224, 224, 224);
 	--primarycolor: #e8676b;
 	--hovercolor: crimson;
-	--textcolor: #ffffffdb;
-	--borderColor: #222;
-	--shadowColor: #222;
-	--elementBackgroundColor: rgb(49, 49, 49);
-	--footerBackgroundColor: rgba(31, 31, 31);
-	--welcomeSectionOverlay: rgb(36, 40, 50);
+	--textcolor: #3d4451;
+	--borderColor: lightgrey;
+	--shadowColor: #eee;
+	--elementBackgroundColor: rgba(255, 255, 255);
+	--footerBackgroundColor: rgb(235, 224, 224);
 }
 
 ::selection {
@@ -62,7 +61,8 @@ body {
 	background-color: var(--elementBackgroundColor);
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.19);
 	transition: all 0.2s ease-in-out;
-	.nav-link-a{
+
+	.nav-link-a {
 		color: var(--textcolor);
 	}
 }
@@ -140,6 +140,7 @@ body {
 	width: 55%;
 	margin-right: 20px;
 }
+
 .nav-li {
 	display: flex;
 	justify-content: space-between;
@@ -191,7 +192,7 @@ body {
 		transition: opacity 0.2s ease;
 	}
 
-	.checkbox-wrapper{
+	.checkbox-wrapper {
 		margin-right: 80px !important;
 	}
 
@@ -229,63 +230,68 @@ body {
 	transform: translateX(0%);
 	transition: transform 0.3s ease-in-out;
 }
+
 .nav-ul-active .nav-link-a:after {
 	bottom: 5px;
 }
 
-.checkbox-wrapper{
+.checkbox-wrapper {
 	display: flex;
 	align-items: center;
 	margin-right: 20px;
 	margin-left: 0;
 }
 
-.checkbox{
-  opacity: 0;
-  position: absolute;
+.checkbox {
+	opacity: 0;
+	position: absolute;
 }
 
 .checkbox-label {
-  background-color: #111;
-  width: 50px;
-  height: 26px;
-  border-radius: 50px;
-  position: relative;
-  padding: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	background-color: #111;
+	width: 50px;
+	height: 26px;
+	border-radius: 50px;
+	position: relative;
+	padding: 5px;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-.fa-moon {color: #f1c40f;}
+.fa-moon {
+	color: #f1c40f;
+}
 
-.fa-sun {color: #f39c12;}
+.fa-sun {
+	color: #f39c12;
+}
 
 .checkbox-label .ball {
-  background-color: #fff;
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
+	background-color: #fff;
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	border-radius: 50%;
+	transition: transform 0.2s linear;
 }
 
 .checkbox-label .ball .ball-active {
-  background-color: #fff;
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
+	background-color: #fff;
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	border-radius: 50%;
+	transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .checkbox-label .ball {
-  transform: translateX(24px);
+.checkbox:checked+.checkbox-label .ball {
+	transform: translateX(24px);
 }
 
 /* *Navbar* */
@@ -295,7 +301,7 @@ body {
 .jump {
 	position: fixed;
 	bottom: 20px;
-	right: 30px;
+	left: 30px;
 	font-size: 2rem;
 	z-index: 2;
 	opacity: 0;
@@ -321,6 +327,7 @@ body {
 	50% {
 		transform: scale(1.5);
 	}
+
 	100% {
 		transform: scale(1);
 	}
@@ -407,7 +414,8 @@ section {
 	animation: start-animate 2s ease-in infinite;
 }
 
-.fa-angle-down, .fa-angle-double-up {
+.fa-angle-down,
+.fa-angle-double-up {
 	color: var(--primarycolor);
 }
 
@@ -416,10 +424,12 @@ section {
 		opacity: 1;
 		transform: translateY(10px);
 	}
+
 	50% {
 		opacity: 0.5;
 		transform: translateY(20px);
 	}
+
 	100% {
 		opacity: 1;
 		transform: translateY(10px);
@@ -429,6 +439,10 @@ section {
 /* *jump to about arrow* */
 
 /* *About Section* */
+
+#about-section{
+	position: relative;
+}
 
 #about-section h1 {
 	font-size: 2rem;
@@ -460,21 +474,21 @@ section {
 
 /*  *Download Resume Button */
 
+.fa-download{
+	color: var(--primarycolor);
+	font-size: 1rem;
+}
+
 .download-resume {
-	text-align: center;
-	margin: 40px;
+	position: absolute;
+	right: 1rem;
+	top: 2rem;
 }
 
 .download-resume a {
-	padding: 20px;
-	margin: 0 auto;
-	border: 1.5px solid var(--borderColor);
-	border-radius: 4px;
-	text-decoration: none;
-	color: var(--textcolor);
-	background-color: var(--elementBackgroundColor);
-	font-weight: 700;
-	letter-spacing: 1px;
+	padding: 15px 18px;
+	border: 1px solid var(--borderColor);
+	border-radius: 10px;
 }
 
 .download-resume a:hover,
@@ -517,7 +531,6 @@ section {
 	max-width: 1500px;
 	margin: 10px 0px;
 	padding: 20px;
-	border: 0.5px solid var(--borderColor);
 	border-radius: 5px;
 	background-color: var(--elementBackgroundColor);
 	display: grid;
@@ -536,12 +549,15 @@ section {
 .tile-child1 {
 	grid-area: child1;
 }
+
 .tile-child2 {
 	grid-area: child2;
 }
+
 .tile-child3 {
 	grid-area: child3;
 }
+
 .tile-child4 {
 	grid-area: child4;
 }
@@ -570,6 +586,7 @@ section {
 	display: flex;
 	justify-content: center;
 }
+
 .project-tile .btns button {
 	width: 40%;
 	padding: 5px;
@@ -577,6 +594,7 @@ section {
 	border-radius: 5px;
 	font-weight: 500;
 }
+
 .project-tile .btns a {
 	width: 40%;
 	max-width: 150px;
@@ -613,6 +631,7 @@ section {
 	.project-tile .project-img {
 		width: 90%;
 	}
+
 	.project-tile p {
 		font-size: 1rem;
 	}
@@ -623,9 +642,11 @@ section {
 		height: 500px;
 		padding: 20px 10px;
 	}
+
 	.project-tile .project-img {
 		width: 100%;
 	}
+
 	.project-tile p {
 		font-size: 1rem;
 	}
@@ -683,10 +704,12 @@ hr {
 	margin-top: 1em;
 	color: var(--primarycolor);
 }
+
 .description li {
 	list-style: none;
 	margin-left: 0.2em;
 }
+
 .description li::before {
 	content: '\2022';
 	font-weight: bold;
@@ -743,10 +766,12 @@ hr {
 }
 
 .right-card-1 {
+	position: relative;
 	grid-column: 2/3;
 	grid-row: 1/2;
 	justify-self: center;
 }
+
 .right-card-2 {
 	grid-column: 2/3;
 	grid-row: 2/3;
@@ -823,26 +848,32 @@ hr {
 	color: crimson;
 	font-size: 4rem;
 }
+
 .fa-react {
 	color: #189aee;
 	font-size: 4rem;
 }
+
 .fa-js-square {
 	color: #f7df1e;
 	font-size: 4rem;
 }
+
 .fa-database {
 	color: grey;
 	font-size: 4rem;
 }
+
 .fa-node-js {
 	color: #7fba37;
 	font-size: 4rem;
 }
+
 .fa-seedling {
 	color: #7fba37;
 	font-size: 4rem;
 }
+
 /* *Skills Section* */
 
 /* *Contact Form Section* */
@@ -930,8 +961,8 @@ hr {
 	transition: all 0.2s ease-in-out;
 }
 
-.name input:focus + label .content-name,
-.name input:valid + label .content-name {
+.name input:focus+label .content-name,
+.name input:valid+label .content-name {
 	left: 0;
 	top: -25px;
 	opacity: 1;
@@ -939,7 +970,7 @@ hr {
 	font-size: 1rem;
 }
 
-.name input:focus + label::after {
+.name input:focus+label::after {
 	width: 100%;
 }
 
@@ -986,6 +1017,7 @@ hr {
 	opacity: 0%;
 	transition: opacity 500ms ease-in;
 }
+
 .thankyou_message-active {
 	opacity: 80%;
 	display: flex;
@@ -1004,12 +1036,15 @@ hr {
 	#contact-form label {
 		font-size: 0.9rem;
 	}
+
 	.input-field {
 		font-size: 1.3rem;
 	}
+
 	#contact-form input[type='submit'] {
 		font-size: 1.3rem;
 	}
+
 	.name .content-name {
 		top: 18px;
 		font-size: 1.2rem;
@@ -1113,5 +1148,6 @@ hr {
 .loading {
 	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='575' height='6px'%3E %3Cstyle%3E circle { animation: ball 2.5s cubic-bezier(0.000, 1.000, 1.000, 0.000) infinite; fill: %23fff; } %23balls { animation: balls 2.5s linear infinite; } %23circle2 { animation-delay: 0.1s; } %23circle3 { animation-delay: 0.2s; } %23circle4 { animation-delay: 0.3s; } %23circle5 { animation-delay: 0.4s; } @keyframes ball { from { transform: none; } 20% { transform: none; } 80% { transform: translateX(864px); } to { transform: translateX(864px); } } @keyframes balls { from { transform: translateX(-40px); } to { transform: translateX(30px); } } %3C/style%3E %3Cg id='balls'%3E %3Ccircle class='circle' id='circle1' cx='-115' cy='3' r='3'/%3E %3Ccircle class='circle' id='circle2' cx='-130' cy='3' r='3' /%3E %3Ccircle class='circle' id='circle3' cx='-145' cy='3' r='3' /%3E %3Ccircle class='circle' id='circle4' cx='-160' cy='3' r='3' /%3E %3Ccircle class='circle' id='circle5' cx='-175' cy='3' r='3' /%3E %3C/g%3E %3C/svg%3E") 50% no-repeat;
 	cursor: not-allowed !important;
-	}
+}
+
 /* commons */

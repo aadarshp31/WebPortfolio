@@ -11,7 +11,6 @@
 	const form = document.querySelector("form");
 
 	//* Controling the animation of hamburger icon
-
 	hamburger.addEventListener('click', () => {
 		hamburger.classList.toggle('hamburger-active')
 		navList.classList.toggle('nav-ul-active')
@@ -20,7 +19,7 @@
 
 	// close the open navbar slider if page-overlay element is clicked
 	pageOverlay.addEventListener('click', () => {
-		if(hamburger.classList.contains('hamburger-active')){
+		if (hamburger.classList.contains('hamburger-active')) {
 			hamburger.classList.toggle('hamburger-active')
 			navList.classList.toggle('nav-ul-active')
 			overlay.classList.toggle('page-overlay-active')
@@ -118,4 +117,35 @@
 		submitButton.classList.remove('loading');
 		submitButton.value = "Submit";
 	});
+
+	// Calculate and set the years of experience in the work experience div
+	setYearsOfExperience("zoho", "2021-05-12");
+	setYearsOfExperience("skillinc", "2019-02-1", "2020-02-1");
 })()
+
+/**
+ * Sets the years of experience in the work experience div
+ * @param {String} id id of the work experience div
+ * @param {String} start string representation of the start date
+ * @param {String} end string representation of the end date
+ */
+function setYearsOfExperience(id, start, end) {
+	const yearsOfExperience = calculateYearsOfExperience(start, end);
+	const yoeSpan = document.createElement('span').innerText = yearsOfExperience;
+	document.querySelector(`#${id} h3`).innerHTML += ` (${yoeSpan} Years)`;
+}
+
+/**
+ * Calculates the years of experience
+ * @param {String} startDate string representation of the start date
+ * @param {String | undefined} endDate string representation of the end date
+ * @returns {String} years of experience in the format "x.y" where x is the number of years and y is the number of months
+ */
+function calculateYearsOfExperience(startDate, endDate) {
+	const start = new Date(startDate);
+	const end = endDate ? new Date(endDate) : new Date();
+	const monthsDifference = end.getMonth() - start.getMonth();
+	const yearsDifference = monthsDifference < 0 ? end.getFullYear() - start.getFullYear() - 1 : end.getFullYear() - start.getFullYear();
+	const yearsOfExperience = `${yearsDifference}.${monthsDifference >= 0 && monthsDifference < 11 ? monthsDifference : 12 - (start.getMonth() - end.getMonth())}`;
+	return yearsOfExperience;
+}
