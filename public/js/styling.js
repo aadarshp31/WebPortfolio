@@ -40,6 +40,6 @@ function changeStyle(style) {
  * @param {Event} e 
  * @author @aadarshp31
  */
-function toggleTheme(e){
-		changeStyle(e.target.checked ? styleLight : styleDark);
+function toggleTheme(e) {
+	changeStyle(e.target.checked ? styleDark : styleLight);
 }
