@@ -120,7 +120,7 @@
 
 	// Calculate and set the years of experience in the work experience div
 	setYearsOfExperience("zoho", "2021-05-12");
-	setYearsOfExperience("skillinc", "2019-02-1", "2020-02-1");
+	setYearsOfExperience("skillinc", "2019-02-01", "2020-02-01");
 })()
 
 /**
