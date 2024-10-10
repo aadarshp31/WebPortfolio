@@ -74,48 +74,75 @@
 			formData.append(input.name, input.value);
 		}
 
-		const res = await fetch('https://script.google.com/macros/s/AKfycbw2XDL4ovMweNUkNnPXFeGkNv55cqYkih68r_z_/exec', {
-			method: 'POST',
-			body: formData
-		});
+		try {
+			const res = await fetch('https://script.google.com/macros/s/AKfycbyb2q_K3cnsHHyJ9db4Z5qWhKKjgIIV6GlPNCWsjutBQp7uGkqhd4kbJ5Y3fpAmq1OW/exec', {
+				method: 'POST',
+				body: formData
+			});
 
-		switch (res.status) {
-			case 200:
-				submitButton.disabled = false;
-				for (const input of inputsArray) {
-					if (input.type === 'submit') {
-						continue;
+			switch (res.status) {
+				case 200:
+					submitButton.disabled = false;
+					for (const input of inputsArray) {
+						if (input.type === 'submit') {
+							continue;
+						}
+						input.value = '';
 					}
-					input.value = '';
-				}
 
-				// Display "thank You" message after submitting form
-				thankyouMessage.style.opacity = "80%";
-				thankyouMessage.classList.add('thankyou_message-active');
-				submitButton.classList.remove('loading');
-				submitButton.value = "Submit";
+					// Display "thank You" message after submitting form
+					thankyouMessage.style.opacity = "80%";
+					thankyouMessage.classList.add('thankyou_message-active');
+					submitButton.classList.remove('loading');
+					submitButton.value = "Submit";
 
-				// Remove "thank you" message after 3s
-				setTimeout(() => {
-					thankyouMessage.style.opacity = "0%";
+					// Remove "thank you" message after 3s
 					setTimeout(() => {
-						thankyouMessage.classList.remove('thankyou_message-active');
 						thankyouMessage.style.opacity = "0%";
-						thankyouMessage.style.display = "none";
-					}, 600);
-				}, 3000);
+						setTimeout(() => {
+							thankyouMessage.classList.remove('thankyou_message-active');
+							thankyouMessage.style.opacity = "0%";
+							thankyouMessage.style.display = "none";
+						}, 600);
+					}, 3000);
 
-				break;
+					break;
 
-			default:
-				console.error('something went wrong while sending email');
-				break;
+				default:
+					console.error('something went wrong while sending email');
+					break;
+			}
+
+			// Re-enable the submit button regardless of the response
+			submitButton.disabled = false;
+			submitButton.classList.remove('loading');
+			submitButton.value = "Submit";
+			form.reset();
+		} catch (error) {
+			console.error({ error });
+
+			// Display "thank You" message after submitting form
+			thankyouMessage.style.opacity = "80%";
+			thankyouMessage.classList.add('thankyou_message-active');
+			submitButton.classList.remove('loading');
+			submitButton.value = "Submit";
+
+			// Remove "thank you" message after 3s
+			setTimeout(() => {
+				thankyouMessage.style.opacity = "0%";
+				setTimeout(() => {
+					thankyouMessage.classList.remove('thankyou_message-active');
+					thankyouMessage.style.opacity = "0%";
+					thankyouMessage.style.display = "none";
+				}, 600);
+			}, 3000);
+
+			// Re-enable the submit button regardless of the response
+			submitButton.disabled = false;
+			submitButton.classList.remove('loading');
+			submitButton.value = "Submit";
+			form.reset();
 		}
-
-		// Re-enable the submit button regardless of the response
-		submitButton.disabled = false;
-		submitButton.classList.remove('loading');
-		submitButton.value = "Submit";
 	});
 
 	// Calculate and set the years of experience in the work experience div
